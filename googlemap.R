@@ -5,4 +5,6 @@ library(ggmap)
 googleAPIkey = "AIzaSyBTKSuVLKs-TWlR6tbARUqueIfr5TX4ZTg"
 register_google(googleAPIkey)
 gg_seoul <- get_googlemap("seoul", maptype = "terrain")
+gg2_seoul <- get_googlemap("seoul", maptype = "roadmap")
 ggmap(gg_seoul)
+ggmap(gg2_seoul)
