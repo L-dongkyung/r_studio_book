@@ -1,0 +1,6 @@
+"","x","y","x...0","y...1","and연산","or연산"
+"1",1,5,TRUE,TRUE,TRUE,TRUE
+"2",2,4,TRUE,TRUE,TRUE,TRUE
+"3",3,3,TRUE,TRUE,TRUE,TRUE
+"4",4,2,TRUE,TRUE,TRUE,TRUE
+"5",5,1,TRUE,FALSE,FALSE,TRUE
