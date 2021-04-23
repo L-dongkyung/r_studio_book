@@ -1,0 +1,16 @@
+library(readxl)
+library(dplyr)
+dustdata <- read_excel("c:/rstudy/dustdata.xlsx")
+dustdata_compare <- dustdata %>% filter(area %in% c("도봉구","강남구"))
+View(dustdata_compare)
+count(dustdata_compare, yyyymmdd) %>% arrange(desc(n))
+count(dustdata_compare, area) %>% arrange(desc(n))
+dust_area_gang <- subset(dustdata_compare, area =="강남구")
+dust_area_do <- subset(dustdata_compare, area =="도봉구")
+library(psych)
+describe(dust_area_gang$finedust)
+describe(dust_area_do$finedust)
+boxplot(dust_area_gang$finedust, dust_area_do$finedust,
+        main = "finedust_compare", xlab = "AREA", ylab = "FINEDUST_PM", 
+        names = c("강남구","도봉구"), col = c("blue", "green"))
+t.test(data = dustdata_compare, finedust ~ area, var.equal = T)
