@@ -4,6 +4,7 @@ library(ggmap)
 library(readxl)
 station_data <- read_excel("c:/rstudy/지하철2호선.xlsx")
 googleAPIkey <- "AIzaSyBTKSuVLKs-TWlR6tbARUqueIfr5TX4ZTg"
+register_google(googleAPIkey)
 station_code <- as.character(station_data$역주소)
 View(station_code)
 station_code <- geocode(station_code)
@@ -49,5 +50,6 @@ ggmap(hongdae_map) +
              size = 3) +
   geom_text(data = station_code_final, aes(label = 역명, vjust = -1)) +
   geom_point(data = apart_final, aes(x= lon, y = lat)) +
-  geom_text(data = apart_final, aes(label = 단지명, vjust = -1)) +
+  geom_text(data = apart_final, aes(label = 단지명, vjust = -1), colour = "blue") +
   geom_text(data = apart_final, aes(label = 거래금액, vjust = 1), colour = "purple", size = 5)
+
